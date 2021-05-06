@@ -1,5 +1,5 @@
 const router = require('express').Router(); //router function of //express
-const controller = require('../controllers/controller');//API HOME
+const controller = require("../Controller/controller");//API HOME
 router.get('/', (req, res)=>
 {
     res.send('API WORKING');

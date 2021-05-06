@@ -1,5 +1,6 @@
 // dependecies - use npm install --save express body-parser mongoose to install these
 
+let bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = require('express')(); 
 

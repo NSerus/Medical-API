@@ -1,5 +1,5 @@
 //Import Plan Model
-Plan = require('../models/model');//Index
+Plan = require('../Models/model');//Index
 exports.index = (req, res)=>
 {
     Plan.get((err, plan)=>
