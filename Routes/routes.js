@@ -1,0 +1,12 @@
+const router = require('express').Router(); //router function of //express
+const controller = require('../controllers/controller');//API HOME
+router.get('/', (req, res)=>
+{
+    res.send('API WORKING');
+});//Plan routes
+router.route('/').get(controller.index)
+                .post(controller.add);
+                
+router.route('/:id').get(controller.view)
+    
+module.exports = router;
