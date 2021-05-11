@@ -22,14 +22,14 @@ exports.add = (req, res)=>
 {
     var plan = new Plan();
     //Info basica
-    plan.basic_info.name = req.body.basic_info.name? req.body.name: plan.name;
+    plan.basic_info.name = req.body.basic_info.name;
     plan.basic_info.date_of_birth = req.body.basic_info.date_of_birth;
     plan.basic_info.address = req.body.basic_info.address;
     plan.basic_info.emergency_phone = req.body.basic_info.emergency_phone;
     plan.basic_info.care_plan = req.body.basic_info.care_plan;
     
     //historia médica
-    plan.health_history.medication = req.body.health_history.medication;
+    plan.health_history.medication_history = req.body.health_history.medication_history;
     plan.health_history.allergies = req.body.health_history.allergies;
     plan.health_history.mental_state = req.body.health_history.mental_state;
 

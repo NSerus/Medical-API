@@ -24,7 +24,7 @@ var PlanSchema = mongoose.Schema({
     },
 
     health_history: {
-        medication:{
+        medication_historycle:{
             type: String,
             required: false
         },
@@ -58,6 +58,9 @@ var PlanSchema = mongoose.Schema({
         },
         medications:{
                 type: Array, //todo: correct?
+                items: {
+                    type: String
+                },
                 required: false
         },
         description:{
