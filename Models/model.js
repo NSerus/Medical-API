@@ -20,7 +20,7 @@ var PlanSchema = mongoose.Schema({
         care_plan:{
             type: String,
             required: false
-        }
+        },
     },
 
     health_history: {
@@ -39,12 +39,34 @@ var PlanSchema = mongoose.Schema({
         }
     },
 
-    Diagnosis: {
-        type: String,
-        required: true
+    consult: {
+        consult_date:{
+            type: Date,
+            required: true
+        },
+        exams:{
+            required:false,
+            
+            type_exams:{
+                type: String,
+            required: false
+            },
+            date_exams:{
+                type: Date,
+                required: false
+            }
+        },
+        medications:{
+            med_name:{
+                type: String,
+                required: false
+            }
+        },
+        Description:{
+            type:String,
+            required: true
+        }
     },
-
-
 
 });// Export Plan Model
 var Plan = module.exports = mongoose.model('plan', PlanSchema);module.exports.get = function (callback, limit) {

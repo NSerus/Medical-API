@@ -22,7 +22,9 @@ exports.add = (req, res)=>
 {
     var plan = new Plan();
     plan.name = req.body.name? req.body.name: plan.name;
-    plan.cellphone = req.body.cellphone;//Saving and error checking
+    plan.age = req.body.age;//Saving and error checking
+    plan.health_history.health = req.body.health_history.health;
+    plan.health_history.na = req.body.health_history.na;
     plan.save((err)=>
     {
         if (err) res.json(err);
