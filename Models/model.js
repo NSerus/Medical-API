@@ -46,7 +46,7 @@ var PlanSchema = mongoose.Schema({
         },
         exams:{
             required:false,
-            
+
             type_exams:{
                 type: String,
             required: false
@@ -57,12 +57,10 @@ var PlanSchema = mongoose.Schema({
             }
         },
         medications:{
-            med_name:{
-                type: String,
+                type: Array, //todo: correct?
                 required: false
-            }
         },
-        Description:{
+        description:{
             type:String,
             required: true
         }
