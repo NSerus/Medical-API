@@ -29,7 +29,7 @@
             "get":
             {
                 "description":"Testing.",
-                "tags":["Medical"],
+                "tags":["Tests"],
                 
                 "responses":
                 {
@@ -53,6 +53,115 @@
                     }
                 }
             }
+        },
+        "/":
+        {
+            "get":
+            {
+                "description":"Shows all of the information.",
+                "tags":[],
+                
+                "responses":
+                {
+                    "200":
+                    {
+                        "descripion":"Information.",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "$ref": "#/components/schemas/Response"
+                                }
+                            }
+                        }
+                    },
+                    "404":
+                    {
+                        "description":"There was an error"
+                    }
+                }
+            },
+            "post":
+            {
+                "description":"function to add a new diagnostic.",
+                "tags":["Adding"],
+                "parameters":
+                [
+                    {
+                        "name":"basic_info",
+                        "in": "body",
+                        "description":"The basic info of the client",
+                        "required":"true",
+                        "schema":{
+                            "type": "object",
+                            "required":[
+                                "name",
+                                "date_of_birth",
+                                "address",
+                                "emergency_phone",
+                                "care"
+                            ],
+                            "properties":{
+                                    "name":{
+                                        "type": "string"},
+                                    "date_of_birth":{
+                                        "type": "Date"},
+                                    "address":{
+                                        "type": "string"},
+                                    "emergency_phone":{
+                                        "type": "number"},
+                                    "care_plan":{
+                                        "type": "string"}
+                            }
+                        }
+                    },
+                    {
+                        "name":"health_history",
+                        "in": "body",
+                        "description":"Health history of the client",
+                        "required":"false",
+                        "schema":{
+                            "type": "object",
+                            "required":[
+                            ],
+                            "properties":{
+                                    "medication_history":{
+                                        "type": "string"},
+                                    "allergies":{
+                                        "type": "string"},
+                                    "mental_state":{
+                                        "type": "string"}
+                            }
+                        }
+                    }
+                ],
+                
+                "responses":
+                {
+                    "200":
+                    {
+                        "descripion":"The Created Diagnostics.",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "$ref": "#/components/schemas/Response"
+                                }
+                            }
+                        }
+                    },
+                    "404":
+                    {
+                        "description":"There was an error"
+                    }
+                }
+            }
+
         }
+        
     }
 }
