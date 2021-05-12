@@ -1,0 +1,58 @@
+{
+    "openapi":"3.0.0",
+    "info": {
+      "title": "Medical API",
+      "description": "Basic API for making and getting medical diagnostics information.",
+      "version": "1.0.0"
+    },
+    "host": "localhost:8000",
+    "basePath": "/med",
+    "components":
+    {
+        "schemas":
+        {
+            "Response":
+            {
+                "type": "object",
+                "properties":
+                {
+                    "status":{"type":"string"},
+                    "restult":{"type":"string"}
+                }
+            }
+        }
+    },
+    "paths":
+    {
+        "/test":
+        {
+            "get":
+            {
+                "description":"Testing.",
+                "tags":["Medical"],
+                
+                "responses":
+                {
+                    "200":
+                    {
+                        "descripion":"Testing if the API works.",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "$ref": "#/components/schemas/Response"
+                                }
+                            }
+                        }
+                    },
+                    "404":
+                    {
+                        "description":"There was an error"
+                    }
+                }
+            }
+        }
+    }
+}
