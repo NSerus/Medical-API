@@ -24,7 +24,7 @@ var PlanSchema = mongoose.Schema({
     },
 
     health_history: {
-        medication_historycle:{
+        medication_history:{
             type: String,
             required: false
         },
