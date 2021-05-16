@@ -90,50 +90,12 @@
                 "parameters":
                 [
                     {
-                        "name":"basic_info",
+                        "name":"info",
                         "in": "body",
                         "description":"The basic info of the client",
                         "required":"true",
                         "schema":{
-                            "type": "object",
-                            "required":[
-                                "name",
-                                "date_of_birth",
-                                "address",
-                                "emergency_phone",
-                                "care"
-                            ],
-                            "properties":{
-                                    "name":{
-                                        "type": "string"},
-                                    "date_of_birth":{
-                                        "type": "Date"},
-                                    "address":{
-                                        "type": "string"},
-                                    "emergency_phone":{
-                                        "type": "number"},
-                                    "care_plan":{
-                                        "type": "string"}
-                            }
-                        }
-                    },
-                    {
-                        "name":"health_history",
-                        "in": "body",
-                        "description":"Health history of the client",
-                        "required":"false",
-                        "schema":{
-                            "type": "object",
-                            "required":[
-                            ],
-                            "properties":{
-                                    "medication_history":{
-                                        "type": "string"},
-                                    "allergies":{
-                                        "type": "string"},
-                                    "mental_state":{
-                                        "type": "string"}
-                            }
+                            "$ref": "#/definitions/Plan"
                         }
                     }
                 ],
@@ -163,5 +125,95 @@
 
         }
         
+    },
+    "definitions":{
+        "Plan":{
+            "type":"object",
+            "properties":{
+                "basic_info":{
+                    "type":"object",
+                    "properties":{
+                        "name": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "date_of_birth": {
+                            "type": "yyyy-mm-dd",
+                            "required": true
+                        },
+                        "address":{
+                            "type": "string",
+                            "required": true
+                        },
+                        "emergency_phone":{
+                            "type": "number",
+                            "required": true
+                        },
+                        "care_plan":{
+                            "type": "string",
+                            "required": false
+                        }
+                    }
+                },
+            
+                "health_history": {
+                    "type":"object",
+                    "properties":{
+                        "medication_history":{
+                            "type": "string",
+                            "required": false
+                        },
+                
+                        "allergies":{
+                            "type": "string",
+                            "required": false
+                        },
+                        "mental_state":{
+                            "type": "string",
+                            "required": false
+                        }
+                    }
+                },
+            
+                "consult": {
+                    "type":"object",
+                    "properties":{
+                        "consult_date":{
+                            "type": "yyyy-mm-dd",
+                            "required": true
+                        },
+                        "exams":{
+                            "required":false,
+                            "type":"object",
+                            "properties":{
+                
+                                "type_exams":{
+                                    "type": "string",
+                                    "required": false
+                                },
+                                "date_exams":{
+                                    "type": "yyyy-mm-dd",
+                                    "required": false
+                                }
+                            }
+                        },
+                        "medications":{
+                                "type": "array", 
+                                "items": {
+                                    "type": "string"
+                                },
+                                "required": false
+                        },
+                        "description":{
+                            "type":"string",
+                            "required": true
+                        }
+                    }
+                }
+            },
+            "xml":{
+                "name":"Plan"
+            }
+        }
     }
 }
