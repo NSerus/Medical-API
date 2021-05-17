@@ -58,8 +58,8 @@
         {
             "get":
             {
-                "description":"Shows all of the information.",
-                "tags":[],
+                "description":"Shows all of the information for all clients.",
+                "tags":["All"],
                 
                 "responses":
                 {
@@ -86,7 +86,7 @@
             "post":
             {
                 "description":"function to add a new diagnostic.",
-                "tags":["Adding"],
+                "tags":["Special"],
                 "parameters":
                 [
                     {
@@ -123,7 +123,325 @@
                 }
             }
 
+        },
+        "/basic":{
+            "get":
+            {
+                "description":"Shows basic information of the client.",
+                "tags":["All"],
+                
+                "responses":
+                {
+                    "200":
+                    {
+                        "descripion":"basic info.",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "$ref": "#/components/schemas/Response"
+                                }
+                            }
+                        }
+                    },
+                    "404":
+                    {
+                        "description":"There was an error"
+                    }
+                }
+            }
+        },
+        "/history":{
+            "get":
+            {
+                "description":"Shows health history for all clients.",
+                "tags":["All"],
+                
+                "responses":
+                {
+                    "200":
+                    {
+                        "descripion":"health history.",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "$ref": "#/components/schemas/Response"
+                                }
+                            }
+                        }
+                    },
+                    "404":
+                    {
+                        "description":"There was an error"
+                    }
+                }
+            }
+        },
+        "/consult":{
+            "get":
+            {
+                "description":"Shows all consult info for all clients.",
+                "tags":["All"],
+                
+                "responses":
+                {
+                    "200":
+                    {
+                        "descripion":"consult info.",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "$ref": "#/components/schemas/Response"
+                                }
+                            }
+                        }
+                    },
+                    "404":
+                    {
+                        "description":"There was an error"
+                    }
+                }
+            }
+        },
+        "/count":{
+            "get":
+            {
+                "description":"Shows all consult info for all clients.",
+                "tags":["Special"],
+                
+                "responses":
+                {
+                    "200":
+                    {
+                        "descripion":"consult info.",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "$ref": "#/components/schemas/Response"
+                                }
+                            }
+                        }
+                    },
+                    "404":
+                    {
+                        "description":"There was an error"
+                    }
+                }
+            }
+        },
+        "/{name}":{
+            "get":{
+                "description":"Search by name.",
+                "tags":["Special"],
+                "parameters":
+                [
+                    {
+                        "name":"name",
+                        "in": "path",
+                        "description":"the name to search",
+                        "required":"true",
+                        "schema":{
+                            "type":"string"
+                        }
+                    }
+                ],
+                
+                "responses":
+                {
+                    "200":
+                    {
+                        "descripion":"The Data from the name",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "$ref": "#/components/schemas/Response"
+                                }
+                            }
+                        }
+                    },
+                    "404":
+                    {
+                        "description":"There was an error"
+                    }
+                }
+            }
+        },
+        "/:id":{
+            "get":{
+                "description":"Search by ID.",
+                "tags":["ID-Based", "Special"],
+                "parameters":
+                [
+                    {
+                        "name":"id",
+                        "in": "path",
+                        "description":"the ID to search",
+                        "required":"true",
+                        "schema":{
+                            "type":"string"
+                        }
+                    }
+                ],
+                
+                "responses":
+                {
+                    "200":
+                    {
+                        "descripion":"found data for ID",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "$ref": "#/components/schemas/Response"
+                                }
+                            }
+                        }
+                    },
+                    "404":
+                    {
+                        "description":"There was an error"
+                    }
+                }
+            }
+        },
+        "/basic/{id}":{
+            "get":{
+                "description":"Search basic info by ID.",
+                "tags":["ID-Based"],
+                "parameters":
+                [
+                    {
+                        "name":"name",
+                        "in": "path",
+                        "description":"the ID to search",
+                        "required":"true",
+                        "schema":{
+                            "type":"string"
+                        }
+                    }
+                ],
+                
+                "responses":
+                {
+                    "200":
+                    {
+                        "descripion":"Basic Info Found.",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "$ref": "#/components/schemas/Response"
+                                }
+                            }
+                        }
+                    },
+                    "404":
+                    {
+                        "description":"There was an error"
+                    }
+                }
+            }
+        },
+        "/history/{id}":{
+            "get":{
+                "description":"Search health history by ID.",
+                "tags":["ID-Based"],
+                "parameters":
+                [
+                    {
+                        "name":"name",
+                        "in": "path",
+                        "description":"the ID to search",
+                        "required":"true",
+                        "schema":{
+                            "type":"string"
+                        }
+                    }
+                ],
+                
+                "responses":
+                {
+                    "200":
+                    {
+                        "descripion":"Health History Found.",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "$ref": "#/components/schemas/Response"
+                                }
+                            }
+                        }
+                    },
+                    "404":
+                    {
+                        "description":"There was an error"
+                    }
+                }
+            }
+        },
+        "/consult/{id}":{
+            "get":{
+                "description":"Search consult info by ID.",
+                "tags":["ID-Based"],
+                "parameters":
+                [
+                    {
+                        "name":"name",
+                        "in": "path",
+                        "description":"the ID to search",
+                        "required":"true",
+                        "schema":{
+                            "type":"string"
+                        }
+                    }
+                ],
+                
+                "responses":
+                {
+                    "200":
+                    {
+                        "descripion":"Consult Info Found.",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "$ref": "#/components/schemas/Response"
+                                }
+                            }
+                        }
+                    },
+                    "404":
+                    {
+                        "description":"There was an error"
+                    }
+                }
+            }
         }
+        
+        
         
     },
     "definitions":{
