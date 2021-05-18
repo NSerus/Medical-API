@@ -327,7 +327,7 @@
                 "parameters":
                 [
                     {
-                        "name":"name",
+                        "name":"id",
                         "in": "path",
                         "description":"the ID to search",
                         "required":"true",
@@ -367,7 +367,7 @@
                 "parameters":
                 [
                     {
-                        "name":"name",
+                        "name":"id",
                         "in": "path",
                         "description":"the ID to search",
                         "required":"true",
@@ -407,7 +407,7 @@
                 "parameters":
                 [
                     {
-                        "name":"name",
+                        "name":"id",
                         "in": "path",
                         "description":"the ID to search",
                         "required":"true",

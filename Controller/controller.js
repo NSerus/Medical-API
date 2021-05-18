@@ -168,7 +168,7 @@ exports.view_cons_id = (req, res)=>
     {
         if (err) res.send(err);
         res.json({
-            message: 'Successfully got basic info from ' + plan.consult.name,
+            message: 'Successfully got basic info from ' + plan.basic_info.name,
             data: plan.consult
         });
     });
