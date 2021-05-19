@@ -24,7 +24,7 @@ app.use('/', apiRoutes);
 
 
 const mongoDB = process.env.DB_CONNECTION_STRING;
-app.listen( 8000, ()=>
+app.listen( 8080, ()=>
 {
   
     console.log('Server UP')
