@@ -12,10 +12,6 @@ router.route('/').get(controller.index)
                 
 
 
-router.get('/', (req, res)=>
-{
-    res.send('API WORKING');
-});//Plan routes
 
 router.route('/basic').get(controller.view_info)
 router.route('/history').get(controller.view_his)
