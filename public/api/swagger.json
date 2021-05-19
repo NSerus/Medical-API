@@ -5,7 +5,7 @@
       "description": "Basic API for making and getting medical diagnostics information.",
       "version": "1.0.0"
     },
-    "host": "localhost:8000",
+    "host": "20.71.62.183:8000",
     "basePath": "/med",
     "components":
     {
