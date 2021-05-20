@@ -23,7 +23,9 @@
             "Plan":{
                 "type":"object",
                 "properties":{
-                    
+                    "basic_info":{
+                        "type":"object",
+                        "properties":{
                             "name": {
                                 "type": "string",
                                 "required": true
@@ -43,9 +45,13 @@
                             "care_plan":{
                                 "type": "string",
                                 "required": false
-                            },
+                            }
+                        }
+                    },
                 
-                   
+                    "health_history": {
+                        "type":"object",
+                        "properties":{
                             "medication_history":{
                                 "type": "string",
                                 "required": false
@@ -58,13 +64,21 @@
                             "mental_state":{
                                 "type": "string",
                                 "required": false
-                            },
-                        
-                  
+                            }
+                        }
+                    },
+                
+                    "consult": {
+                        "type":"object",
+                        "properties":{
                             "consult_date":{
                                 "type": "string",
                                 "required": true
                             },
+                            "exams":{
+                                "required":false,
+                                "type":"object",
+                                "properties":{
                     
                                     "type_exams":{
                                         "type": "string",
@@ -73,7 +87,9 @@
                                     "date_exams":{
                                         "type": "string",
                                         "required": false
-                                    },
+                                    }
+                                }
+                            },
                             "medications":{
                                     "type": "array", 
                                     "items": {
@@ -85,8 +101,8 @@
                                 "type":"string",
                                 "required": true
                             }
-                        
-                    
+                        }
+                    }
                 }
             }
         }
